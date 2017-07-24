@@ -16,6 +16,8 @@ Watchman is a file watching service that records when files change, and triggers
 
 
 
+
+
 Great! Now we're ready to create our repo.
 
 ```
@@ -30,6 +32,9 @@ Let's take a sec to talk about how the simulator works. There are two things you
 `command-R` --> refreshes simulator INSTANTLY with your changes
 
 It's pretty groundbreaking.  React Native is cutting through all the overhead for us so we can do instantaneous reloads without all the wait time.
+
+
+
 
 
 
@@ -147,9 +152,7 @@ class VidSearch extends Component {
 AppRegistry.registerComponent('VidSearch', () => VidSearch);
 ```
 
-🚀 Now go to your simulator and press `Cmd+R`. You should have this:
-
-![tab bar](./images/tab-bar.png)
+🚀 Now go to your simulator and press `Cmd+R`.
 
 
 
@@ -229,9 +232,10 @@ const ImageView = (props) => {
 module.exports = ImageView;
 ```
 
-:snowflake: Now, instead of some gross text up in the top corner, we have this nice react logo:
+:snowflake: Now, instead of some gross text up in the top corner, we have this nice react logo!  HOORAY.
 
-![featured tab](./images/featured.png)
+
+
 
 
 
@@ -239,7 +243,8 @@ module.exports = ImageView;
 ## Adding Content to the Search Page
 So we've got some basic navigation working on the app, but it looks pretty boring. Let's make some cool stuff on the search tab, like how about a nice table view?
 
-🚀 Create a new file: `components/video_list.js`. Add some imports:
+
+🚀 Create a new file: `components/videoList.js`. Add some imports:
 
 ```js
 import React, { Component } from 'react';
@@ -264,7 +269,7 @@ import {
 🚀 And lets create a new class component:
 
 ```js
-import VideoDetail from './video_detail';
+import VideoDetail from './videoDetail';
 
 // Add styling here
 
@@ -330,8 +335,7 @@ class VideoList extends Component {
           textFieldBackgroundColor='#c4302b'
           onChangeText={(query) => {
             this.setState({ query });
-            // Call fetchData here! take this comment out after
-            this.fetchData();
+            // add this.fetchData() here!
           }
           }
         />
@@ -350,6 +354,7 @@ module.exports = VideoList;
 ```
 
 ** IMPORTANT: the comments are to guide you, but do NOT leave them in when you want to run your code.  You need to take them out before you run your simulator. **
+
 
 🚀 And we should add in some styles too. Let's make it a little more interesting this time:
 
@@ -389,8 +394,6 @@ const styles = StyleSheet.create({
 });
 ```
 
-
-
 🚀 Take a look at the simulator. We've now got some text indicating that the videos are loading.
 
 This is the default text we've provided if the API call hasn't returned videos yet. Since we haven't made an API call yet, that definitely makes sense.
@@ -427,11 +430,13 @@ fetchData() {
 
 Where should we call this from? It would be nice if we could get the data from YouTube as soon as we get to the page.
 
-🚀 Create a function `componentDidMount` in `video_list.js`. Inside it, make a call to `fetchData`.
+🚀 Create a function `componentDidMount` in `videoList.js`. Inside it, make a call to `fetchData`.
 
 :snowflake: Now when the page loads, we'll call `fetchData` to populate our list view.
 
-🚀 Alright, let's update the `search.js` file to have a table view that lists all our videos. Replace the return statement in the render function with the following:
+🚀 Let's add `this.fetchData()` in the render section.
+
+🚀 Let's update the `search.js` file to have a table view that lists all our videos. Replace the return statement in the render function with the following:
 
 ```js
 <View style={styles.container}>
@@ -457,13 +462,9 @@ Ah darn, one other thing. We need to actually have a reference to the API, right
 
 🚀 Create a new file at the top level of your project, `youtube-api.js`.
 
-Sound familiar?  We did this in short assignment 4, and we will be using the exact same api for this react-native app!  That's coooool.
+- Please click this link and follow these instructions!  We'll pause for 5 minutes, shouldn't take too long. [YOUTUBE API KEY](http://cs52.me/assignments/sa/react-videos/#youtube-api).
 
-Go ahead and find that file and copy it here.  We need to do this because we need your individual api key, which you already made in sa4.  
-
-- Accidentally deleted your API key? No biggie. Just follow the [old instructions from sa4](http://cs52.me/assignments/sa/react-videos/#youtube-api).
-
-🚀 What's this videoDetail thing? We'll also need to create that. Make a new file called `compnents/video_detail.js` and paste in this code:
+🚀 What's this videoDetail thing? We'll also need to create that. Make a new file called `components/videoDetail.js` and paste in this code:
 
 ```js
 import React, { Component } from 'react';
@@ -512,14 +513,8 @@ class VideoDetail extends Component {
 module.exports = VideoDetail;
 ```
 
-:snowflake: This is a little different from what we've been doing. The WebView component is a sort of hybrid component that's actually just rendering a webpage. The `source` prop holds a uri that's called as if in a browser and then displayed in our application. Notice how it looks just like watching youtube on a mobile device. Pretty cool that we can do this within our application alongside native components, huh?
-
 Here's what the app should be looking like now:
 ![finished app](./images/finished.png)
-
-🚀 Now that the app is complete, we're using all the styling we pasted in awhile ago. Now it's your turn: play around with the styling in `video_list.js`. If you haven't enabled hot-reloading yet, do that, it'll make it easy to see all your styling changes.
-
-:camera: Make the styling uniquely your own. Then, search for some unique searchterm and take a screenshot. You'll upload this to your repo to turn in.
 
 ## And We Are Done!
 
