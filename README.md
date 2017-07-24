@@ -1,3 +1,7 @@
+# React-Native workshop
+
+### Welcome!  Let's learn how to code in react-native together.
+
 ## Set Up:
 
 :warning: We should already have node installed on our machines, but just in case, let's go way to the beginning:
@@ -29,6 +33,7 @@ $ react-native run-ios
 Let's take a sec to talk about how the simulator works. There are two things you can do:
 
 `command-D` --> "Enable Hot Reloading"
+
 `command-R` --> refreshes simulator INSTANTLY with your changes
 
 It's pretty groundbreaking.  React Native is cutting through all the overhead for us so we can do instantaneous reloads without all the wait time.
@@ -353,7 +358,7 @@ class VideoList extends Component {
 module.exports = VideoList;
 ```
 
-** IMPORTANT: the comments are to guide you, but do NOT leave them in when you want to run your code.  You need to take them out before you run your simulator. **
+**IMPORTANT: the comments are to guide you, but do NOT leave them in when you want to run your code.  You need to take them out before you run your simulator.**
 
 
 🚀 And we should add in some styles too. Let's make it a little more interesting this time:
