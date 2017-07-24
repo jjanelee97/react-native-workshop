@@ -399,8 +399,6 @@ const styles = StyleSheet.create({
 });
 ```
 
-🚀 Take a look at the simulator. We've now got some text indicating that the videos are loading.
-
 This is the default text we've provided if the API call hasn't returned videos yet. Since we haven't made an API call yet, that definitely makes sense.
 
 🚀 Time to use that `axios` call to populate the table view!
@@ -445,10 +443,6 @@ Where should we call this from? It would be nice if we could get the data from Y
 
 ```js
 <View style={styles.container}>
-  <StatusBar
-    backgroundColor="blue"
-    barStyle="light-content"
-  />
   <NavigatorIOS
     style={styles.container}
     translucent={false}
@@ -462,6 +456,11 @@ Where should we call this from? It would be nice if we could get the data from Y
   />
 </View>
 ```
+
+🚀 ALSO, make sure to import VideoList! We're using VideoList now, so we gotta make sure to import it:
+
+`import VideoList from './videoList'`
+
 
 Ah darn, one other thing. We need to actually have a reference to the API, right? This next part should (hopefully) look super familiar.
 
@@ -517,9 +516,6 @@ class VideoDetail extends Component {
 
 module.exports = VideoDetail;
 ```
-
-Here's what the app should be looking like now:
-![finished app](./images/finished.png)
 
 ## And We Are Done!
 
